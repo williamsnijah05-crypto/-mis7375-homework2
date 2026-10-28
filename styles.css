@@ -1,0 +1,406 @@
+/* =====================================================
+   L.W. Medical Hospital — Patient Registration Form
+   Homework 2 external stylesheet
+   File: css/styles.css
+   ===================================================== */
+
+/* Global defaults */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: light;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #252b36;
+    background: #d8e5e5;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+}
+
+/* Hospital header */
+.page-header {
+    background: #ffffff;
+    border-bottom: 4px solid #23116b;
+    padding: 22px clamp(16px, 4vw, 52px);
+    min-height: 150px;
+    overflow: auto;
+}
+
+.hospital-logo {
+    float: left;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin: 2px 18px 10px 0;
+}
+
+.page-header h1 {
+    color: #19052e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.65rem, 3vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 8px;
+}
+
+.page-header p {
+    margin: 0;
+    color: #404754;
+}
+
+/* Main two-column layout: form on the left, result preview on the right */
+.page-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.8fr);
+    align-items: start;
+    gap: 22px;
+    width: min(1440px, 100%);
+    margin: 26px auto;
+    padding: 0 22px;
+}
+
+.form-panel,
+.output-panel {
+    min-width: 0;
+    background: #ffffff;
+    border: 1px solid #c5d3d8;
+    border-radius: 10px;
+    padding: clamp(16px, 2.4vw, 28px);
+    box-shadow: 0 3px 12px rgba(25, 5, 46, 0.08);
+}
+
+h2 {
+    color: #23116b;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.45rem;
+    margin: 0 0 18px;
+    padding-bottom: 9px;
+    border-bottom: 2px solid #d8e5e5;
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* Grouped form sections */
+fieldset {
+    min-width: 0;
+    border: 1px solid #b8c8ce;
+    border-radius: 8px;
+    margin: 0 0 20px;
+    padding: 16px;
+}
+
+legend {
+    color: #23116b;
+    font-weight: 700;
+    padding: 0 8px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin: 12px 0 5px;
+}
+
+.required {
+    color: #a51d2d;
+    font-weight: 700;
+}
+
+/* Standard text-entry controls */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+select,
+textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 42px;
+    padding: 9px 11px;
+    border: 1px solid #899ba4;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #252b36;
+    font: inherit;
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #66747b;
+    opacity: 1;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(35, 17, 107, 0.22);
+    outline-offset: 2px;
+    border-color: #23116b;
+}
+
+/* Indicate an invalid control after it receives focus, without marking
+   every required empty field as an error when the page first loads. */
+input:focus:invalid,
+select:focus:invalid,
+textarea:focus:invalid {
+    border-color: #a51d2d;
+}
+
+small {
+    display: block;
+    color: #59656d;
+    font-size: 0.88rem;
+    margin: 5px 0 12px;
+}
+
+/* Checkbox and radio choices */
+.choice-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 18px;
+    margin: 6px 0 14px;
+}
+
+.choice-list label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    font-weight: 400;
+}
+
+.choice-list input[type="checkbox"],
+.choice-list input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: #23116b;
+    flex: 0 0 auto;
+}
+
+/* Wellbeing slider and its live value */
+.slider-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 4px 0 15px;
+}
+
+.slider-row input[type="range"] {
+    flex: 1;
+    width: 100%;
+    accent-color: #23116b;
+    cursor: pointer;
+}
+
+.slider-row output {
+    display: inline-block;
+    min-width: 42px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    background: #e9e7f4;
+    color: #23116b;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Submission and reset buttons */
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+button {
+    min-height: 42px;
+    border: 1px solid #23116b;
+    border-radius: 5px;
+    padding: 10px 17px;
+    background: #23116b;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #39278a;
+}
+
+button.secondary {
+    background: #59656d;
+    border-color: #59656d;
+}
+
+button.secondary:hover {
+    background: #404a51;
+}
+
+.required-note {
+    color: #59656d;
+    font-size: 0.9rem;
+}
+
+.field-message {
+    color: #a51d2d;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+#formMessage:empty,
+#passwordMessage:empty {
+    display: none;
+}
+
+/* Submitted-information area and table */
+.output-panel {
+    position: sticky;
+    top: 16px;
+    overflow-wrap: anywhere;
+}
+
+#outputIntro {
+    color: #4d5962;
+}
+
+#outputContent[hidden] {
+    display: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    table-layout: fixed;
+}
+
+caption {
+    color: #23116b;
+    font-weight: 700;
+    text-align: left;
+    padding: 7px 0;
+}
+
+th,
+td {
+    border: 1px solid #c5d3d8;
+    padding: 9px;
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+th {
+    width: 40%;
+    background: #edf1f5;
+    color: #23116b;
+}
+
+tbody tr:nth-child(even) td {
+    background: #f8fafb;
+}
+
+.privacy-note,
+.disclaimer {
+    color: #59656d;
+    font-size: 0.88rem;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px 26px;
+    background: #ffffff;
+    border-top: 1px solid #c5d3d8;
+    margin-top: 28px;
+    padding: 18px 22px;
+    text-align: center;
+}
+
+footer p {
+    margin: 4px 0;
+}
+
+footer a {
+    color: #23116b;
+    font-weight: 700;
+}
+
+footer a:hover {
+    color: #39278a;
+}
+
+/* Responsive layout for tablets and phones */
+@media (max-width: 900px) {
+    .page-layout {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 0 14px;
+        margin: 16px auto;
+    }
+
+    .output-panel {
+        position: static;
+    }
+}
+
+@media (max-width: 520px) {
+    .page-header {
+        padding: 18px 14px;
+    }
+
+    .hospital-logo {
+        width: 48px;
+        height: 48px;
+        margin-right: 12px;
+    }
+
+    .page-header h1 {
+        font-size: 1.45rem;
+    }
+
+    .page-layout {
+        padding: 0 10px;
+        gap: 14px;
+    }
+
+    .form-panel,
+    .output-panel {
+        padding: 14px;
+    }
+
+    fieldset {
+        padding: 12px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 7px;
+        font-size: 0.9rem;
+    }
+}
